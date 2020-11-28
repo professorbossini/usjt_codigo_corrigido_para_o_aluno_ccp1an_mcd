@@ -1,0 +1,17 @@
+<h2>Login</h2>
+<form  [formGroup]='form' submit="onFazerLogin(userForm)" autocomplete="off">
+<mat-card>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Usuário de login" >
+    <mat-error *ngIf="form.get('login').invalid"></mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Senha">
+    <mat-error *ngIf="form.get('senha').invalid"></mat-error>
+  </mat-form-field>
+
+  <hr>
+  <button color='primary' mat-raised-button (click)='onFazerLogin()'>Fazer Login</button>
+</mat-card>
+</form>

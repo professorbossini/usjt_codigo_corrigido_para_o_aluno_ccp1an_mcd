@@ -1,0 +1,16 @@
+:host{
+  margin-top: 1rem;
+  display: block;
+  box-sizing:content-box;
+}
+mat-spinner{
+  margin:auto;
+}
+.cliente-imagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  }
+  .cliente-imagem > img {
+  max-width: 20px;
+  }

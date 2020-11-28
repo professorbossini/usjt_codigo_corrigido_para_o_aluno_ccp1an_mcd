@@ -1,0 +1,22 @@
+mat-form-field, input{
+  width: 100%;
+}
+h2{
+  margin: 30px 0px;
+}
+
+mat-spinner{
+  margin:auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+ }
+
+ .imagem-preview {
+  height: 5rem;
+  margin: 1rem 0;
+ }
+ .imagem-preview img {
+  height: 100%;
+ }

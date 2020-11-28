@@ -1,0 +1,64 @@
+<h2> Adicionar Lembretes </h2>
+
+<mat-card>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form  [formGroup]='form' (submit)="onSalvarLembrete()" *ngIf="!estaCarregando" autocomplete="off">
+
+    <mat-form-field>
+      <input type="date"
+        matInput
+        placeholder="Data Atual"
+        formControlName="dataHoje"
+        name="dataHoje"
+        />
+      <mat-error *ngIf="form.get('dataHoje').invalid">Digite a Data Atual </mat-error>
+    </mat-form-field>
+
+      <hr>
+
+    <mat-form-field>
+      <input type="date"
+        matInput
+        placeholder="Data de Previsão"
+        formControlName="dataPrev"
+        name='dataPrev'
+      />
+      <mat-error *ngIf="form.get('dataPrev').invalid">Digite uma Data Válida</mat-error>
+    </mat-form-field>
+
+      <hr>
+
+    <mat-form-field>
+      <input type="text"
+        matInput
+        placeholder="Nome do Lembrete"
+        formControlName="nome"
+        name='nome'
+      />
+      <mat-error *ngIf="form.get('nome').invalid">Digite um nome do Lembrete</mat-error>
+    </mat-form-field>
+
+      <hr>
+
+    <mat-form-field>
+      <input type="text"
+        matInput
+        placeholder="Conteudo do Lembrete (Opcional)"
+        formControlName="conteudoLembrete"
+        name='conteudoLembrete'
+      />
+    </mat-form-field>
+
+    <button mat-stroke-button type="button" (click)="selecionarArquivo.click()">Selecionar Imagem</button>
+    <input type="file" (change)="onImagemSelecionada($event)" #selecionarArquivo>
+    <hr>
+    <div class="imagem-preview">
+      <img [src]="previewImagem" *ngIf="previewImagem && previewImagem !== ''
+     && form.get('imagem').valid" [alt]="form.value.nome">
+    </div>
+
+    <button color='accent' mat-raised-button >
+      Salvar Lembrete
+    </button>
+  </form>
+</mat-card>

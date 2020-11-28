@@ -1,0 +1,24 @@
+<h2>Cadastro</h2>
+
+<mat-card>
+  <form [formGroup]='form' (submit)="onAdicionarUser()" autocomplete="off">
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="Email" formControlName="email" name="email" />
+      <mat-error *ngIf="form.get('email').invalid">Digite um email válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="Usuário de login" formControlName="login" name="login">
+      <mat-error *ngIf="form.get('login').invalid">Digite um login válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" matInput placeholder="Senha" formControlName="senha" name="senha">
+      <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida</mat-error>
+    </mat-form-field>
+
+    <hr>
+    <button color='primary' mat-raised-button (click) = 'onAdicionarUser()'>Cadastrar Usuário</button>
+  </form>
+</mat-card>

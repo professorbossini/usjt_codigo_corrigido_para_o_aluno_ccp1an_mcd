@@ -1,11 +1,18 @@
-:host{
-  margin-top: 1rem;
-  display: block;
-  box-sizing:content-box;
+.buttonLogout{
+  margin-top: 500px;
 }
+
+.listaTitle{
+  flex: 1;
+  display: inline;
+  margin-bottom: 20px;
+  margin-right: 965px;
+}
+
 mat-spinner{
   margin:auto;
 }
+
 .cliente-imagem {
   width: 100%;
   display: flex;
@@ -14,3 +21,5 @@ mat-spinner{
   .cliente-imagem > img {
   max-width: 20px;
   }
+
+

@@ -1,7 +1,29 @@
 mat-card{
   width: 100%;
   margin: auto;
+  align-items: center;
 }
 mat-form-field, input{
   width: 100%;
+}
+
+p{
+  text-align: center;
+  background-color: rgb(66, 66, 66);
+  margin-top: 20px;
+}
+strong{
+  color: white;
+}
+
+a{
+  color: white
+}
+
+h2{
+  margin-bottom: 20px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-shadow: black;
 }

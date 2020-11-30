@@ -1,10 +1,12 @@
-<h2> Adicionar Lembretes </h2>
+<h1 class="adicionarTitle"> Adicionar Lembretes </h1><button class="buttonBack" routerLink="/principal" mat-raised-button color="primary">Voltar</button>
 
+
+<hr>
 <mat-card>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
   <form  [formGroup]='form' (submit)="onSalvarLembrete()" *ngIf="!estaCarregando" autocomplete="off">
 
-    <mat-form-field>
+    <mat-form-field >
       <input type="date"
         matInput
         placeholder="Data Atual"
@@ -40,7 +42,7 @@
 
       <hr>
 
-    <mat-form-field>
+    <mat-form-field color="primary">
       <input type="text"
         matInput
         placeholder="Conteudo do Lembrete (Opcional)"
@@ -57,8 +59,11 @@
      && form.get('imagem').valid" [alt]="form.value.nome">
     </div>
 
-    <button color='accent' mat-raised-button >
+    <button class="salvarLembrete"color='accent' mat-raised-button >
       Salvar Lembrete
     </button>
   </form>
 </mat-card>
+
+
+

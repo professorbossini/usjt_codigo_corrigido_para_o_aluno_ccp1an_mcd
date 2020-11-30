@@ -58,16 +58,17 @@ router.post('/register', async (req, res, next) =>{
   // })
 
   router.post('/authenticate', async (req ,res, next) =>{
-    const {login, senha} = req.body;
+    const {email, senha} = req.body;
 
-    const user = await User.findOne({login}).select('+senha');
+    const user = await User.findOne({email});
 
     if(!user)
       return res.status(400).send({error: 'User not found'});
 
-    if(!await bcrypt.compare(senha, user.senha))
+    if((senha, user.senha))
       return res.status(400).send({error: 'Invalid Password'});
 
+    if(user)
     res.send({user});
   });
 
@@ -77,6 +78,15 @@ router.get('/register', async (req, res, next) =>{
       mensagem:"Tudo OK",
       user: documents
     });
+  });
+});
+
+router.get("/:id", (req, res, next) =>{
+  User.findOne(req.params.login && req.params.senha).then(user =>{
+    if(user)
+    res.status(200).json(user);
+    else
+    res.status(404).json({mensagem:"User not found"});
   });
 });
 

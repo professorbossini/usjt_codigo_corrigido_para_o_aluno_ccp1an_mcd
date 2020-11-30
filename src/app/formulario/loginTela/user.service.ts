@@ -11,6 +11,10 @@ import { bcryptjs } from 'bcryptjs';
 export class UserService {
   private user : User[] = [];
   private listaUserAtualizada = new Subject<User[]>();
+  private idUsuario: string;
+  private login: string;
+  private senha: string;
+
 
 constructor(private httpClient: HttpClient, private router: Router){
 
@@ -45,21 +49,39 @@ constructor(private httpClient: HttpClient, private router: Router){
     user.id = dados.id,
     this.user.push(user);
     this.listaUserAtualizada.next([...this.user]);
-    this.router.navigate(["/"]);
+    this.router.navigate(["/login"]);
   });
     }
 
-  verificarUser(login: string, senha: string){
-      this.httpClient.get<{ id: String, login: String, senha: String}>
-      (`http://localhost:3030/auth/register`);
-      this.router.navigate(['/principal'])
+
+    getUsuario(loginUser: string){
+      return this.httpClient.get<{id: string, login: String, email: String, senha: String}>
+      (`http://localhost/auth/authenticate/${loginUser}`);
+    }
+
+  verificarUser(login: string, senha: string, email: null, id: string){
+    const user: User = {
+      login,
+      senha,
+      email,
+      id
+    }
+      this.httpClient.post<{id: string, email: string, login: string, senha:string}>
+      (`http://localhost:3030/auth/authenticate`, user).subscribe(login =>{
+
+        if(!login){
+        return;
+        }
+        console.log(login)
+       this.router.navigate(['/principal']);
+
+
+      })
+
+
     }
 
 
-
-  // getListaUserAtualizadaObservable(){
-  //   return this.listaUserAtualizada.asObservable();
-  // }
 
 
 

@@ -38,7 +38,7 @@ getLembretes(): void {
   }
 
   adicionarLembrete(dataHoje: string, dataPrev: string, nome:string, conteudoLembrete: string, imagem: File){
-    // const lem: Lembrete = {
+    //   const lem: Lembrete = {
     //   id: null,
     //   dataHoje: dataHoje,
     //   dataPrev: dataPrev,
@@ -72,7 +72,7 @@ getLembretes(): void {
   removerLembrete (id: string): void{
     this.httpClient.delete(`http://localhost:3030/api/principal/${id}`)
     .subscribe(() => {
-      this.lembretes = this.lembretes.filter((lem) =>{
+      this.lembretes = this.lembretes.filter((lem)=>{
         return lem.id !== id
       });
       this.listaLembretesAtualizado.next([...this.lembretes]);

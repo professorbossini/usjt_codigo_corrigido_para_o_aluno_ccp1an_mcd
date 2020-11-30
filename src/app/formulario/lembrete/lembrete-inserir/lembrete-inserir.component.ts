@@ -62,7 +62,7 @@ export class LembreteInserirComponent implements OnInit{
           dataPrev: this.lembrete.dataPrev,
           nome: this.lembrete.nome,
           conteudoLembrete: this.lembrete.conteudoLembrete,
-          imagem: this.lembrete.imagemURL
+          imagem: null
         });
 
         })
@@ -98,7 +98,7 @@ export class LembreteInserirComponent implements OnInit{
         this.form.value.dataPrev,
         this.form.value.nome,
         this.form.value.conteudoLembrete,
-        this.form.value.imagem
+        this.form.value.imagemURL
       )
     }
     this.form.reset();

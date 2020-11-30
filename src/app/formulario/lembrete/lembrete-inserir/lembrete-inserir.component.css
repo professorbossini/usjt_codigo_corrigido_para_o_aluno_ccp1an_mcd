@@ -1,8 +1,11 @@
 mat-form-field, input{
   width: 100%;
 }
-h2{
-  margin: 30px 0px;
+
+.adicionarTitle{
+  flex: 1;
+  display: inline;
+  margin-right: 1049px;
 }
 
 mat-spinner{
@@ -17,6 +20,11 @@ input[type="file"] {
   height: 5rem;
   margin: 1rem 0;
  }
+
  .imagem-preview img {
   height: 100%;
  }
+
+
+
+

@@ -19,6 +19,7 @@ router.post('/register', async (req, res, next) =>{
     login: req.body.login,
     senha: req.body.senha
   })
+  console.log (user);
   user.save()
   .then(userInserido => {
     res.status(201).json({
@@ -58,21 +59,26 @@ router.post('/register', async (req, res, next) =>{
   // })
 
   router.post('/authenticate', async (req ,res, next) =>{
-    const {email, senha} = req.body;
+    console.log (req.body);
+    //aqui estava pegando email e não login
+    const {login, senha} = req.body;
 
-    const user = await User.findOne({email});
+    console.log (login);
+    const user = await User.findOne({login});
+    console.log (user);
 
     if(!user)
       return res.status(400).send({error: 'User not found'});
 
-    if((senha, user.senha))
+    //o teste aqui estava errado (usava virgula)
+    if((senha !== user.senha))
       return res.status(400).send({error: 'Invalid Password'});
 
     if(user)
     res.send({user});
   });
 
-router.get('/register', async (req, res, next) =>{
+router.get('/register', (req, res, next) =>{
   User.find().then(documents =>{
     res.status(200).json({
       mensagem:"Tudo OK",

@@ -66,6 +66,7 @@ constructor(private httpClient: HttpClient, private router: Router){
       email,
       id
     }
+    console.log (user);
       this.httpClient.post<{id: string, email: string, login: string, senha:string}>
       (`http://localhost:3030/auth/authenticate`, user).subscribe(login =>{
 

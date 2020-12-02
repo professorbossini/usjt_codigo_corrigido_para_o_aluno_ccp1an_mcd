@@ -1,14 +1,15 @@
 <h2>Login</h2>
 
-<form  [formGroup]='form' submit="onFazerLogin(userForm)" autocomplete="off">
+<!-- aqui no template faltava fazer formControlName em cada input -->
+<form  [formGroup]='form'  autocomplete="off">
 <mat-card>
   <mat-form-field>
-    <input type="text" matInput placeholder="Usuário de login" >
+    <input type="text" formControlName="login" matInput placeholder="Usuário de login" >
     <mat-error *ngIf="form.get('login').invalid"></mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input type="text" matInput placeholder="Senha">
+    <input type="text" matInput placeholder="Senha" formControlName="senha">
     <mat-error *ngIf="form.get('senha').invalid"></mat-error>
   </mat-form-field>
 
